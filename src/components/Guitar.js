@@ -39,12 +39,35 @@ function drawTresholds(ctx) {
   }
 
 class Guitar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            chord: {}
+        }
+    }
+
     componentDidMount() {
         this.updateCanvas();
     }
 
-    componentDidUpdate() {
-        this.updateCanvas();
+    componentDidUpdate(nextProps, prevState) {
+        if (nextProps.chord.id != prevState.chord.id) {
+            console.log("component did update");
+            //this.setState({ chord: this.props.chord });
+            this.updateCanvas();
+        }
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log("getDerivedStateFromProps");
+        if (nextProps.chord.id != prevState.chord.id) {
+            console.log(nextProps.chord);
+            return { chord: nextProps.chord };
+        }
+        else {
+            console.log("getDerivedStateFromProps false");
+            return {};
+        }
     }
 
     updateCanvas() {
@@ -58,7 +81,10 @@ class Guitar extends Component {
     
     render() {
         return(
-            <canvas ref="canvas" width={width} height={height} />
+            <div>
+                <h3>{this.state.chord.name}</h3>
+                <canvas ref="canvas" width={width} height={height} />
+            </div>
         );
     }
 }
