@@ -17,7 +17,6 @@ class App extends Component {
   getChordById(chordId) {
     var filteredChords = CHORDS.filter(function(ch) { return ch.id == chordId; });
     if (filteredChords.length > 0) {
-      console.log(filteredChords[0]);
       return filteredChords[0];
     }
 
@@ -25,7 +24,6 @@ class App extends Component {
   }
 
   handleClick(event) {
-    console.log(event.target.attributes["data-id"].value);
     var chordId = event.target.attributes["data-id"].value;
 
     if (chordId) {
