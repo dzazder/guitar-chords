@@ -13,7 +13,7 @@ var CHORDS = [
         "id": 3,
         "name": "D-dur",
         "holds": [ 2, 3, 2, 0, 0, 0],
-        "no-touch": [ 6 ]
+        "noTouch": [ 6 ]
     }
 ];
 

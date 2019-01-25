@@ -4,6 +4,8 @@ var width = 800;
 var height = 300;
 var marginX = 50;
 var marginY = 50;
+var lblMargin = 15;
+var smLblMargin = 5;
 var stringSpace = 30;
 var tresholdSpace = 80;
 var stringCount = 6;
@@ -13,7 +15,10 @@ var guitarHeight = stringSpace * (stringCount - 1);
 var nutWidth = 10;
 var holdRadius = 8;
 var holdColor = 'red';
+var noTouchColor = 'red';
 var defaultColor = 'black';
+var defaultFont = "18px Arial";
+var stringNames = [ "e", "B(H)", "G", "D", "A", "E" ];
 
 function rect(props) {
     const { ctx, x, y, width, height } = props;
@@ -21,23 +26,43 @@ function rect(props) {
 }
 
 function line(props) {
-    const { ctx, x1, y1, x2, y2 } = props;
+    const { ctx, x1, y1, x2, y2, color } = props;
+
     ctx.beginPath();
+    ctx.strokeStyle = color ? color : defaultColor;
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.stroke();
     ctx.closePath();
+
+    ctx.strokeStyle=defaultColor;
+}
+
+function text(props) {
+    const { ctx, x, y, txt, alignWidth, alignHeight, fontColor } = props;
+    ctx.font = defaultFont;
+    if (fontColor) {
+        ctx.fillStyle = fontColor;
+    }
+    var measure = ctx.measureText(txt);
+    var xcorr = alignWidth * measure.width;
+    var ycorr = alignHeight * parseInt(defaultFont);
+    ctx.fillText(txt, x + xcorr, y + ycorr);
+
+    ctx.fillStyle = defaultColor;
 }
 
 function drawStrings(ctx) {
     for (var i = 0; i < stringCount; i++) {
         line({ ctx, x1: marginX, y1: marginY + i * stringSpace, x2: marginX + nutWidth + guitarWidth, y2: marginY + i * stringSpace });
+        text({ ctx, x: marginX - smLblMargin, y: marginY + i * stringSpace, txt: stringNames[i], alignWidth: -1, alignHeight: 0.25 });
     }
 }
-
+ 
 function drawTresholds(ctx) {
     for (var i = 0; i < tresholdCount; i++) {
         line({ ctx, x1: marginX + nutWidth + i * tresholdSpace, y1: marginY, x2: marginX + nutWidth + i * tresholdSpace, y2: marginY + guitarHeight });
+        text({ ctx, x: marginX + nutWidth + i * tresholdSpace + tresholdSpace / 2, y: marginY - lblMargin, txt: (i+1), alignWidth: -0.5, alignHeight: 0 });
     }
 }
 
@@ -55,6 +80,14 @@ function drawChord(ctx, chord) {
                 ctx.closePath();
 
                 ctx.fillStyle = defaultColor;
+            }
+        }
+
+        if (chord.noTouch) {
+            for (var i = 0; i < chord.noTouch.length; i++) {
+                var noTouch = chord.noTouch[i] - 1;
+                line({ ctx, x1: marginX, y1: marginY + noTouch * stringSpace, x2: marginX + nutWidth + guitarWidth, y2: marginY + noTouch * stringSpace, color: noTouchColor });
+                text({ ctx, x: marginX + guitarWidth + lblMargin, y: marginY + noTouch * stringSpace, txt: 'X', alignHeight: 0.25, alignWidth: 0, fontColor: noTouchColor });
             }
         }
     }
