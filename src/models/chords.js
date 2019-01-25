@@ -14,6 +14,12 @@ var CHORDS = [
         "name": "D-dur",
         "holds": [ 2, 3, 2, 0, 0, 0],
         "noTouch": [ 6 ]
+    },
+    {
+        "id": 21,
+        "name": "C-moll",
+        "holds": [ 0, 4, 5, 5, 0, 0],
+        "fullTresh": 3
     }
 ];
 

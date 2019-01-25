@@ -13,7 +13,7 @@ var tresholdCount = 6;
 var guitarWidth = tresholdSpace * tresholdCount;
 var guitarHeight = stringSpace * (stringCount - 1);
 var nutWidth = 10;
-var holdRadius = 8;
+var holdRadius = 10;
 var holdColor = 'red';
 var noTouchColor = 'red';
 var defaultColor = 'black';
@@ -66,20 +66,48 @@ function drawTresholds(ctx) {
     }
 }
 
+function drawHold(props) {
+    const { ctx, stringNo, treshNo, radius, color } = props;
+
+    var cx = marginX + nutWidth + treshNo * tresholdSpace - tresholdSpace / 2;
+    var cy = marginY + stringNo * stringSpace;
+    
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, 2 * Math.PI, false);
+    ctx.fillStyle = color;
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = defaultColor;
+}
+
+function drawFullHold(props) {
+    const { ctx, treshNo, color } = props;
+
+    var cx = marginX + nutWidth + treshNo * tresholdSpace - tresholdSpace / 2;
+    var cy = marginY + (stringCount - 1) * stringSpace;
+
+    var rx = marginX + nutWidth + treshNo * tresholdSpace - tresholdSpace / 2 - holdRadius;
+    var ry = marginY;
+    var rw = holdRadius * 2;
+    var rh = guitarHeight;
+    
+    ctx.beginPath();
+    ctx.arc(cx, cy, holdRadius, Math.PI, 2 * Math.PI, true);
+    ctx.fillStyle = color;
+    rect({ ctx, x: rx, y: ry, width: rw, height: rh });
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = defaultColor;
+}
+
 function drawChord(ctx, chord) {
     console.log(chord);
     if (chord && chord.holds) {
         for (var i = 0; i < chord.holds.length; i++) {
             if (chord.holds[i] > 0) {
-                var cx = marginX + nutWidth + chord.holds[i] * tresholdSpace - tresholdSpace / 2;
-                var cy = marginY + i * stringSpace;
-                ctx.beginPath();
-                ctx.arc(cx, cy, holdRadius, 0, 2 * Math.PI, false);
-                ctx.fillStyle = holdColor;
-                ctx.fill();
-                ctx.closePath();
-
-                ctx.fillStyle = defaultColor;
+                drawHold({ctx, stringNo: i, treshNo: chord.holds[i], radius: holdRadius, color: holdColor });
             }
         }
 
@@ -89,6 +117,10 @@ function drawChord(ctx, chord) {
                 line({ ctx, x1: marginX, y1: marginY + noTouch * stringSpace, x2: marginX + nutWidth + guitarWidth, y2: marginY + noTouch * stringSpace, color: noTouchColor });
                 text({ ctx, x: marginX + guitarWidth + lblMargin, y: marginY + noTouch * stringSpace, txt: 'X', alignHeight: 0.25, alignWidth: 0, fontColor: noTouchColor });
             }
+        }
+
+        if (chord.fullTresh) {
+            drawFullHold({ ctx, treshNo: chord.fullTresh, color: noTouchColor });
         }
     }
 }
