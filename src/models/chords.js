@@ -178,6 +178,254 @@ var CHORDS = [
         "name": "A-dim",
         "holds": [ 0, 1, 2, 1, 0, 0],
         "noTouch": [ 1, 6 ]
+    },
+
+    {
+        "id": 51,
+        "name": "A-dur",
+        "holds": [ 0, 0, 1, 2, 2, 0]
+    },
+    {
+        "id": 52,
+        "name": "A-moll",
+        "holds": [ 0, 0, 0, 2, 2, 0]
+    },
+    {
+        "id": 53,
+        "name": "A-dur7",
+        "holds": [ 0, 0, 1, 0, 2, 0]
+    },
+    {
+        "id": 54,
+        "name": "A-moll7",
+        "holds": [ 0, 0, 0, 0, 2, 0]
+    },
+    {
+        "id": 55,
+        "name": "A-dur6",
+        "holds": [ 0, 2, 1, 2, 2, 0]
+    },
+    {
+        "id": 56,
+        "name": "A-moll6",
+        "holds": [ 0, 2, 0, 2, 2, 0]
+    },
+    {
+        "id": 57,
+        "name": "A-sus4",
+        "holds": [ 0, 0, 2, 2, 2, 0]
+    },
+    {
+        "id": 57,
+        "name": "A-9",
+        "holds": [ 2, 0, 1, 0, 2, 0]
+    },
+    {
+        "id": 59,
+        "name": "A-dim",
+        "holds": [ 0, 0, 0, 2, 1, 0],
+        "noTouch": [ 1, 2 ]
+    },
+
+    {
+        "id": 61,
+        "name": "F-dur",
+        "holds": [ 0, 0, 2, 3, 3, 0],
+        "fullTresh": 1
+    },
+    {
+        "id": 62,
+        "name": "F-moll",
+        "holds": [ 0, 0, 0, 3, 3, 0],
+        "fullTresh": 1
+    },
+    {
+        "id": 63,
+        "name": "F-dur7",
+        "holds": [ 0, 0, 2, 0, 3, 0],
+        "fullTresh": 1
+    },
+    {
+        "id": 64,
+        "name": "F-moll7",
+        "holds": [ 0, 0, 0, 0, 3, 0],
+        "fullTresh": 1
+    },
+    {
+        "id": 65,
+        "name": "F-dur6",
+        "holds": [ 1, 3, 2, 3, 0, 0],
+        "noTouch": [ 5, 6 ]
+    },
+    {
+        "id": 66,
+        "name": "F-moll6",
+        "holds": [ 0, 3, 1, 3, 3, 0],
+        "noTouch": [ 1, 6 ]
+    },
+    {
+        "id": 67,
+        "name": "F-sus4",
+        "holds": [ 0, 0, 3, 3, 3, 0],
+        "fullTresh": 1,
+        "noTouch": [ 1 ]
+    },
+
+    {
+        "id": 71,
+        "name": "H-dur",
+        "holds": [ 0, 4, 4, 4, 0, 0],
+        "fullTresh": 2
+    },
+    {
+        "id": 72,
+        "name": "H-moll",
+        "holds": [ 0, 3, 4, 4, 0, 0],
+        "fullTresh": 2
+    },
+    {
+        "id": 73,
+        "name": "H-dur7",
+        "holds": [ 2, 0, 2, 1, 2, 0],
+        "noTouch": [ 6 ]
+    },
+    {
+        "id": 74,
+        "name": "H-moll7",
+        "holds": [ 0, 3, 0, 4, 0, 0],
+        "fullTresh": 2
+    },
+
+    {
+        "id": 81,
+        "name": "Fis-dur",
+        "holds": [ 0, 0, 3, 4, 4, 0],
+        "fullTresh": 2
+    },
+    {
+        "id": 82,
+        "name": "Fis-moll",
+        "holds": [ 0, 0, 0, 4, 4, 0],
+        "fullTresh": 2
+    },
+    {
+        "id": 83,
+        "name": "Fis-dur7",
+        "holds": [ 0, 0, 3, 0, 4, 0],
+        "fullTresh": 2
+    },
+    {
+        "id": 84,
+        "name": "Fis-moll7",
+        "holds": [ 0, 0, 0, 0, 4, 0],
+        "fullTresh": 2
+    },
+
+    {
+        "id": 91,
+        "name": "Cis-dur",
+        "holds": [ 0, 6, 6, 6, 0, 0],
+        "fullTresh": 4
+    },
+    {
+        "id": 92,
+        "name": "Cis-moll",
+        "holds": [ 0, 5, 6, 6, 0, 0],
+        "fullTresh": 4
+    },
+    {
+        "id": 93,
+        "name": "Cis-dur7",
+        "holds": [ 0, 6, 0, 6, 0, 0],
+        "fullTresh": 4
+    },
+    {
+        "id": 94,
+        "name": "Cis-moll7",
+        "holds": [ 0, 6, 5, 6, 0, 0],
+        "fullTresh": 4
+    },
+    {
+        "id": 95,
+        "name": "Cis-sus4",
+        "holds": [ 0, 7, 6, 0, 0, 0],
+        "fullTresh": 4
+    },
+
+    {
+        "id": 101,
+        "name": "Gis-dur",
+        "holds": [ 0, 0, 5, 6, 6, 0],
+        "fullTresh": 4
+    },
+    {
+        "id": 102,
+        "name": "Gis-moll",
+        "holds": [ 0, 0, 0, 6, 6, 0],
+        "fullTresh": 4
+    },
+    {
+        "id": 103,
+        "name": "Gis-dur7",
+        "holds": [ 0, 0, 5, 0, 6, 0],
+        "fullTresh": 4
+    },
+    {
+        "id": 104,
+        "name": "Gis-moll7",
+        "holds": [ 3, 4, 5, 6, 0, 0],
+        "noTouch": [ 5, 6]
+    },
+
+    {
+        "id": 111,
+        "name": "Es-dur",
+        "holds": [ 0, 8, 8, 8, 0, 0],
+        "fullTresh": 6
+    },
+    {
+        "id": 112,
+        "name": "Es-moll",
+        "holds": [ 0, 7, 8, 8, 0, 0],
+        "fullTresh": 6
+    },
+    {
+        "id": 113,
+        "name": "Es-dur7",
+        "holds": [ 0, 8, 0, 8, 0, 0],
+        "fullTresh": 6
+    },
+    {
+        "id": 114,
+        "name": "Es-moll7",
+        "holds": [ 0, 8, 7, 8, 0, 0],
+        "fullTresh": 6,
+        "noTouch": [ 6]
+    },
+
+    {
+        "id": 121,
+        "name": "B-dur",
+        "holds": [ 0, 3, 3, 3, 0, 0],
+        "fullTresh": 1
+    },
+    {
+        "id": 122,
+        "name": "B-moll",
+        "holds": [ 0, 2, 3, 3, 0, 0],
+        "fullTresh": 1
+    },
+    {
+        "id": 123,
+        "name": "B-dur7",
+        "holds": [ 0, 3, 0, 3, 0, 0],
+        "fullTresh": 1
+    },
+    {
+        "id": 124,
+        "name": "B-moll7",
+        "holds": [ 0, 2, 0, 3, 0, 0],
+        "fullTresh": 1
     }
     
 ];

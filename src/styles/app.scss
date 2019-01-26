@@ -1,3 +1,4 @@
+$btnBasicColor: #f1c40f;
 $btnColor: #3498db;
 
 .app-root {
@@ -23,9 +24,7 @@ $btnColor: #3498db;
   box-sizing: border-box;
   appearance: none;
   background-color: transparent;
-  border: 2px solid $btnColor;
   border-radius: 0.6em;
-  color: $btnColor;
   cursor: pointer;
   align-self: center;
   font-size: 0.8rem;
@@ -41,10 +40,29 @@ $btnColor: #3498db;
   width: 75px;
 }
 
+.btn-chord.basic {
+  border: 2px solid $btnBasicColor;
+  color: $btnBasicColor;
+}
+
+.btn-chord.additional {
+  border: 2px solid $btnColor;
+  color: $btnColor;
+}
+
 .btn-chord:hover,
 .btn-chord:focus {
   color: #fff;
   outline: 0;
+}
+
+.btn-chord.basic:hover,
+.btn-chord.basic:focus {
+  box-shadow: 0 0 40px 40px $btnBasicColor inset;
+}
+
+.btn-chord.additional:hover,
+.btn-chord.additional:focus {
   box-shadow: 0 0 40px 40px $btnColor inset;
 }
 

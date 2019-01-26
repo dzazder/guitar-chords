@@ -39,8 +39,10 @@ class App extends Component {
         chordsButtons.push(<div key={-i}></div>);
       }
 
+      var className = "btn-chord ";
+      className += chord.id % 10 < 3 ? " basic " : " additional ";
       chordsButtons.push(
-        <button key={chord.id} data-id={chord.id} onClick={this.handleClick} className="btn-chord">{chord.name}</button>
+        <button key={chord.id} data-id={chord.id} onClick={this.handleClick} className={className}>{chord.name}</button>
       );
     }
 
