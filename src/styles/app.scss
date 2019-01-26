@@ -1,0 +1,59 @@
+$btnColor: #3498db;
+
+.app-root {
+  margin: 0 auto;
+}
+
+.guitar {
+  margin: 15px auto;
+  background-color: #1F3944;
+  border-radius: 25px;
+  text-align: center;
+  width: 600px;
+  height: 300px;
+}
+
+.guitar-keys {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn-chord {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid $btnColor;
+  border-radius: 0.6em;
+  color: $btnColor;
+  cursor: pointer;
+  align-self: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 5px 5px;
+  padding: 0.1em 0.1em;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 700;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  height: 40px;
+  width: 75px;
+}
+
+.btn-chord:hover,
+.btn-chord:focus {
+  color: #fff;
+  outline: 0;
+  box-shadow: 0 0 40px 40px $btnColor inset;
+}
+
+.chord-title {
+    padding: 10px;
+    height: 50px;
+    color: white;
+}
+
+.chord-title h3 {
+    text-align: center;
+}

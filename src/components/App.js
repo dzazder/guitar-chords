@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/app.scss';
 import Guitar from './Guitar';
 import CHORDS from '../models/chords';
 
@@ -31,13 +32,22 @@ class App extends Component {
   }
   
   render() {
-    let chordsButtons = CHORDS.map((chord) => 
-      <button key={chord.id} data-id={chord.id} onClick={this.handleClick}>{chord.name}</button>);
+    var chordsButtons = [];
+    for (var i = 0; i < CHORDS.length; i++) {
+      var chord = CHORDS[i];
+      if (chord.id % 10 == 1) {
+        chordsButtons.push(<div key={-i}></div>);
+      }
+
+      chordsButtons.push(
+        <button key={chord.id} data-id={chord.id} onClick={this.handleClick} className="btn-chord">{chord.name}</button>
+      );
+    }
 
     return (
-      <div>
-        <Guitar chord={this.state.chord} />
-        <div>{chordsButtons}</div>
+      <div className="app-root">
+        <Guitar chord={this.state.chord} canvasWidth={555} canvasHeight={250} />
+        <div class="guitar-keys">{chordsButtons}</div>
       </div>
     );
   }
