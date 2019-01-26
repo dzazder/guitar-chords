@@ -1,5 +1,8 @@
+# Guitar Chords
+
 To see this application [Click Here](https://guitar-chords.herokuapp.com)
 
+Build status: [![Build Status](https://travis-ci.org/dzazder/guitar-chords.svg?branch=master)](https://travis-ci.org/dzazder/guitar-chords)
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
