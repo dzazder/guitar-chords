@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import Guitar from './Guitar';
 import CHORDS from '../models/chords';
 
