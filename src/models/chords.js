@@ -181,50 +181,44 @@ var CHORDS = [
     },
 
     {
-        "id": 51,
-        "name": "A-dur",
+        "id": 131,
+        "name": "E-dur",
         "holds": [ 0, 0, 1, 2, 2, 0]
     },
     {
-        "id": 52,
-        "name": "A-moll",
+        "id": 132,
+        "name": "E-moll",
         "holds": [ 0, 0, 0, 2, 2, 0]
     },
     {
-        "id": 53,
-        "name": "A-dur7",
+        "id": 133,
+        "name": "E-dur7",
         "holds": [ 0, 0, 1, 0, 2, 0]
     },
     {
-        "id": 54,
-        "name": "A-moll7",
+        "id": 134,
+        "name": "E-moll7",
         "holds": [ 0, 0, 0, 0, 2, 0]
     },
     {
-        "id": 55,
-        "name": "A-dur6",
+        "id": 135,
+        "name": "E-dur6",
         "holds": [ 0, 2, 1, 2, 2, 0]
     },
     {
-        "id": 56,
-        "name": "A-moll6",
+        "id": 136,
+        "name": "E-moll6",
         "holds": [ 0, 2, 0, 2, 2, 0]
     },
     {
-        "id": 57,
-        "name": "A-sus4",
+        "id": 137,
+        "name": "E-sus4",
         "holds": [ 0, 0, 2, 2, 2, 0]
     },
     {
-        "id": 57,
-        "name": "A-9",
-        "holds": [ 2, 0, 1, 0, 2, 0]
-    },
-    {
-        "id": 59,
-        "name": "A-dim",
-        "holds": [ 0, 0, 0, 2, 1, 0],
-        "noTouch": [ 1, 2 ]
+        "id": 138,
+        "name": "E-9",
+        "holds": [ 2, 0, 1, 0, 2, 2]
     },
 
     {

@@ -116,8 +116,8 @@ function drawChord(ctx, chord) {
         }
 
         if (chord.noTouch) {
-            for (var i = 0; i < chord.noTouch.length; i++) {
-                var noTouch = chord.noTouch[i] - 1;
+            for (var j = 0; j < chord.noTouch.length; j++) {
+                var noTouch = chord.noTouch[j] - 1;
                 line({ ctx, x1: marginX, y1: marginY + noTouch * stringSpace, x2: marginX + nutWidth + guitarWidth, y2: marginY + noTouch * stringSpace, color: noTouchColor, lineWidth: noTouchWidth });
                 text({ ctx, x: marginX + guitarWidth + lblMargin, y: marginY + noTouch * stringSpace, txt: 'X', alignHeight: 0.25, alignWidth: 0, fontColor: noTouchColor, textStyle: boldFont });
             }
@@ -132,6 +132,7 @@ function drawChord(ctx, chord) {
 class Guitar extends Component {
     constructor(props) {
         super(props);
+        this.canvasRef = React.createRef();
         this.state = {
             chord: {},
             canvasWidth: props.canvasWidth ? props.canvasWidth : 800,
@@ -148,14 +149,16 @@ class Guitar extends Component {
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
-        if (nextProps.chord.id != prevState.chord.id) {
+        if (nextProps.chord.id !== prevState.chord.id) {
             return { chord: nextProps.chord };
         }
-        return { chord: prevState.chord };
+        return null;
     }
 
     updateCanvas() {
-        const ctx = this.refs.canvas.getContext("2d");
+        if (!this.canvasRef.current) return;
+        
+        const ctx = this.canvasRef.current.getContext("2d");
 
         ctx.clearRect(0, 0, this.state.canvasWidth, this.state.canvasHeight);
         rect({ ctx, x: marginX, y: marginY, width: nutWidth, height: guitarHeight }); // draw nut
@@ -168,7 +171,7 @@ class Guitar extends Component {
         return (
             <div className="guitar">
                 <div className="chord-title"><h3>{this.state.chord.name ? this.state.chord.name : "Choose a chord..."}</h3></div>
-                <canvas ref="canvas" width={this.state.canvasWidth} height={this.state.canvasHeight} />
+                <canvas ref={this.canvasRef} width={this.state.canvasWidth} height={this.state.canvasHeight} />
             </div>
         );
     }
