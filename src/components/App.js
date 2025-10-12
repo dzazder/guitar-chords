@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   getChordById(chordId) {
-    var filteredChords = CHORDS.filter(function(ch) { return ch.id == chordId; });
+    var filteredChords = CHORDS.filter(function(ch) { return ch.id === chordId; });
     if (filteredChords.length > 0) {
       return filteredChords[0];
     }
@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   handleClick(event) {
-    var chordId = event.target.attributes["data-id"].value;
+    var chordId = parseInt(event.target.attributes["data-id"].value, 10);
 
     if (chordId) {
       this.setState({chord: this.getChordById(chordId)});
@@ -35,7 +35,7 @@ class App extends Component {
     var chordsButtons = [];
     for (var i = 0; i < CHORDS.length; i++) {
       var chord = CHORDS[i];
-      if (chord.id % 10 == 1) {
+      if (chord.id % 10 === 1) {
         chordsButtons.push(<div key={-i}></div>);
       }
 
@@ -49,7 +49,7 @@ class App extends Component {
     return (
       <div className="app-root">
         <Guitar chord={this.state.chord} canvasWidth={555} canvasHeight={250} />
-        <div class="guitar-keys">{chordsButtons}</div>
+        <div className="guitar-keys">{chordsButtons}</div>
       </div>
     );
   }
