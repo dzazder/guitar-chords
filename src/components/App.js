@@ -48,8 +48,26 @@ class App extends Component {
 
     return (
       <div className="app-root">
-        <Guitar chord={this.state.chord} canvasWidth={555} canvasHeight={250} />
-        <div className="guitar-keys">{chordsButtons}</div>
+        <div className="app-container">
+          <aside className="app-sidebar">
+            <h1>🎸 Guitar Chords</h1>
+            <p className="app-description">
+              Interactive guitar chord visualizer. Click any chord to see the fingering positions on the fretboard.
+            </p>
+          </aside>
+          <main className="app-main">
+            <Guitar chord={this.state.chord} canvasWidth={555} canvasHeight={250} />
+            <div className="guitar-keys">{chordsButtons}</div>
+          </main>
+        </div>
+        <footer className="app-footer">
+          <p>Built with React • Open Source</p>
+          <div className="footer-links">
+            <a href="https://github.com/dzazder/guitar-chords" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+            <span className="separator">•</span>
+            <a href="mailto:bartosz.lampart@gmail.com">Contact Me</a>
+          </div>
+        </footer>
       </div>
     );
   }

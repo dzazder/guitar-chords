@@ -1,8 +1,123 @@
 $btnBasicColor: #f1c40f;
 $btnColor: #3498db;
+$darkBg: #1F3944;
+$lightText: #ecf0f1;
 
 .app-root {
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}
+
+.app-sidebar {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #1abc9c 100%);
+  color: white;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    margin: 0 0 20px 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (min-width: 1024px) {
+    flex: 0 0 350px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 40px;
+    height: fit-content;
+    max-height: calc(100vh - 80px);
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}
+
+.app-description {
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.7;
+  opacity: 0.95;
+
+  @media (min-width: 1024px) {
+    font-size: 1.2rem;
+    text-align: left;
+  }
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  @media (min-width: 1024px) {
+    padding: 0;
+  }
+}
+
+.app-footer {
+  margin-top: 60px;
+  padding: 30px 20px;
+  background-color: $darkBg;
+  color: $lightText;
+  text-align: center;
+  border-top: 3px solid #1abc9c;
+
+  p {
+    margin: 0 0 15px 0;
+    font-size: 0.95rem;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    .separator {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 1rem;
+    }
+  }
+
+  a {
+    color: $btnColor;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+      color: lighten($btnColor, 15%);
+      text-decoration: underline;
+    }
+  }
 }
 
 .guitar {
@@ -74,4 +189,77 @@ $btnColor: #3498db;
 
 .chord-title h3 {
     text-align: center;
+}
+
+// Responsive Design
+@media (max-width: 1023px) {
+  .app-sidebar {
+    padding: 30px 20px;
+
+    h1 {
+      font-size: 2.2rem;
+    }
+  }
+
+  .app-description {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .guitar {
+    width: 95%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-sidebar h1 {
+    font-size: 2rem;
+  }
+
+  .btn-chord {
+    width: 65px;
+    font-size: 0.7rem;
+    margin: 3px;
+  }
+
+  .app-footer {
+    padding: 25px 15px;
+
+    .footer-links {
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .app-sidebar {
+    padding: 25px 15px;
+
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+
+  .app-description {
+    font-size: 0.95rem;
+  }
+
+  .btn-chord {
+    width: 60px;
+    height: 35px;
+    font-size: 0.65rem;
+  }
+
+  .app-footer {
+    .footer-links {
+      flex-direction: column;
+      gap: 8px;
+
+      .separator {
+        display: none;
+      }
+    }
+  }
 }
